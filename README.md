@@ -1,2 +1,8 @@
-# axiom-lab-146
-Ryan Vo | The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click. 
+# axiom-lab-146 — Ryan Vo
+
+Current version: `1.0.0`.
+
+> Work in progress. This checkpoint may be incomplete or fail tests. See PLAN.md and STATUS.md before use.
+
+
+Maintainer: Ryan Vo <ryandtvo@gmail.com>
