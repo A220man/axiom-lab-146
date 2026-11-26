@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { SessionProvider } from '../SessionContext'
 
 describe('Session Continuation', () => {
@@ -11,11 +11,12 @@ describe('Session Continuation', () => {
       </SessionProvider>
     )
     
-    expect(container.querySelector('[data-testid="session-root"]')).toBeInTheDocument()
+    const element = container.querySelector('[data-testid="session-root"]')
+    expect(container.contains(element)).toBe(true)
   })
 
   test('Send button renders in session controls', () => {
-    const { container } = render(
+    render(
       <SessionProvider>
         <div data-testid="session-controls">
           <button data-testid="send-btn">Send</button>
@@ -23,13 +24,12 @@ describe('Session Continuation', () => {
       </SessionProvider>
     )
     
-    const sendBtn = container.querySelector('[data-testid="send-btn"]')
-    expect(sendBtn).toBeInTheDocument()
-    expect(sendBtn!.textContent).toBe('Send')
+    const sendBtn = screen.getByRole('button', { name: 'Send' })
+    expect(sendBtn.textContent).toBe('Send')
   })
 
   test('Accept button renders in session controls', () => {
-    const { container } = render(
+    render(
       <SessionProvider>
         <div data-testid="session-controls">
           <button data-testid="accept-btn">Accept</button>
@@ -37,13 +37,12 @@ describe('Session Continuation', () => {
       </SessionProvider>
     )
     
-    const acceptBtn = container.querySelector('[data-testid="accept-btn"]')
-    expect(acceptBtn).toBeInTheDocument()
-    expect(acceptBtn!.textContent).toBe('Accept')
+    const acceptBtn = screen.getByRole('button', { name: 'Accept' })
+    expect(acceptBtn.textContent).toBe('Accept')
   })
 
   test('End button renders in session controls', () => {
-    const { container } = render(
+    render(
       <SessionProvider>
         <div data-testid="session-controls">
           <button data-testid="end-btn">End</button>
@@ -51,8 +50,7 @@ describe('Session Continuation', () => {
       </SessionProvider>
     )
     
-    const endBtn = container.querySelector('[data-testid="end-btn"]')
-    expect(endBtn).toBeInTheDocument()
-    expect(endBtn!.textContent).toBe('End')
+    const endBtn = screen.getByRole('button', { name: 'End' })
+    expect(endBtn.textContent).toBe('End')
   })
 })

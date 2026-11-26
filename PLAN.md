@@ -10,8 +10,12 @@ continue-implementation
 
 ### continue-implementation — Continue implementation and resolve known failures
 
-Status: in_progress
+Status: done
 
 Acceptance:
 - Run checks, fix failures, and implement the next planned feature
+
+Implementation: `src/__tests__/session.test.tsx fixed - replaced toBeInTheDocument with screen.getByRole and container.contains`
+
+Tests: `src/__tests__/session.test.tsx`
 
